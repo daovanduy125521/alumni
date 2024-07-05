@@ -1,0 +1,39 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+  z-index: 1000; /* Ensure it's above other content */
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.avatar{
+  position: relative;
+}
+
+.change-avatar-btn{
+  display: flex;
+  padding: 9px 23px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  border: 1.5px solid #ffa47d;
+  background: #fff;
+  margin: auto;
+  margin-top: 16px;
+}
+
+.change-avatar-btn:hover{
+  cursor: pointer;
+  background-color: #ffa47d;
+}
+
+
+

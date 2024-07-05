@@ -1,0 +1,14 @@
+<div id="toast" class="toast-container">
+  <div *ngFor="let toast of toasts" class="toast" [ngClass]="'toast--' + toast.type" (click)="removeToast(toast)" style="animation: slideInLeft ease .3s, fadeOut linear 1s '{{ toast.duration / 1000 }}'s forwards;">
+    <div class="toast__icon">
+      <mat-icon class="icon" [ngClass]="'icon--' + toast.type"   [svgIcon]="toast.type + '_circle'"></mat-icon>
+    </div>
+    <div class="toast__body">
+      <h3 class="toast__title">{{ toast.title }}</h3>
+      <p class="toast__msg">{{ toast.message }}</p>
+    </div>
+    <div class="toast__close">
+      <i class="fas fa-times"></i>
+    </div>
+  </div>
+</div>

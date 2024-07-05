@@ -1,0 +1,189 @@
+<div *ngIf="postInfo" class="post" id="post-1">
+  <div class="post-header">
+    <div class="user-avatar"></div>
+    <div class="post-title">
+      <p class="p-bold">{{postInfo.createdBy}}</p>
+      <p class="post-date">{{convertDate(postInfo.createdDate)}}</p>
+    </div>
+  </div>
+  <div class="post-body">
+    <p class="list-tags">{{getFieldTag(postInfo.fields) + getFieldTag(postInfo.tags) + getUserTag(postInfo.userTaggedInPostDTOs)}}</p>
+    <p class="post-content" [innerHTML]="postInfo.content">
+
+    </p>
+    <div *ngIf="postInfo.medias[0] && displayTile" class="image-post">
+      <mat-grid-list cols="4" rowHeight="100px" gutterSize="10px">
+        <mat-grid-tile *ngFor="let tile of displayTile; index as i" [colspan]="tile.cols" [rowspan]="tile.rows"
+          (click)="openImageModelDialog(i)">
+          <img [src]="tile.imageSrc" [alt]="" class="grid-image">
+          <div *ngIf="(i + 1) == tileMax &&  totalImage > tileMax" class="more-mask">
+            +{{ totalImage - tileMax }}
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <!-- <img class="post-image" [src]="postInfo.medias[0] ? postInfo.medias[0].mediaUrl : ''" alt="" /> -->
+    </div>
+
+
+  </div>
+  <div class="post-footer d-flex justify-content-between">
+    <button class="post-button" id="post-1-btnLike" onclick="Like('post-1-btnLike')">
+      <mat-icon class="post-action" svgIcon="like"></mat-icon>
+      Likes(45)
+    </button>
+    <button class="post-button" (click)="getPageComment(postInfo.id)">
+      <mat-icon class="post-action" svgIcon="chat"></mat-icon>
+      Comments({{postInfo.numberOfComment}})
+    </button>
+  </div>
+
+  <div class="post-comment-list">
+
+    <div *ngIf="replyComment == topReply" class="comment-post-create comment-lv1 mt-3 d-flex" id="post-comment-lv1-comment-1">
+      <div class="comment-avatar">
+        <div class="user-avatar"></div>
+      </div>
+      <div class="comment-post-body w-100 ms-3">
+        <textarea name="" class="comment-input" [placeholder]="'Comment as ' +userFullname"
+          [style.height]="textareaHeight + 'px'" [(ngModel)]="commentContent"
+          (input)="adjustTextareaHeight($event)"></textarea>
+        <div class="comment-post-button d-flex justify-content-end px-4 py-2">
+          <button [disabled]="!commentContent" (click)="sendComment(postInfo.id)" class="send-comment"
+            [class]="commentContent?'send-comment':'send-comment-disable'">
+            <p>Send</p>
+            <div *ngIf="isSendingComment" class="spinner-border spinner-border-sm" role="status">
+            </div>
+            <mat-icon *ngIf="!isSendingComment" svgIcon="send"></mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isComment">
+      <div *ngFor="let comment of listComment">
+        <div class="post-comment comment-lv1 d-flex">
+          <div class="comment-avatar">
+            <div class="user-avatar"></div>
+          </div>
+          <div class="comment-body">
+            <div class="comment-content">
+              <p class="username-comment">{{comment.fullname}}</p>
+              <div *ngIf="!(comment.id == editCommentId)">
+                <p class="content-comment">{{comment.content}}</p>
+              </div>
+              <div *ngIf="(comment.id == editCommentId)">
+                <ng-container *ngTemplateOutlet="editTemplate"></ng-container>
+              </div>
+              <ng-template #editTemplate>
+                <div class="comment-post-body w-100 comment-post-create">
+                  <textarea name="" class="comment-input" placeholder="Edit your comment"
+                    [style.height]="textareaHeight + 'px'" [(ngModel)]="editCommentInfo.content"></textarea>
+                  <div class="comment-post-button d-flex justify-content-end px-4 py-2">
+                    <button class="cancel" (click)="cancelEditComment()"> Cancel</button>
+                    <button class="send-comment" (click)="updateComment(editCommentInfo)"
+                      [class]="editCommentInfo ? 'send-comment' : 'send-comment-disable'">
+                      <p>Save</p>
+                      <div *ngIf="false" class="spinner-border spinner-border-sm" role="status"></div>
+                    </button>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+            <div class="comment-button d-flex">
+              <p class="comment-date">Now</p>
+              <p class="comment-like" id="post-1-comment-1-2-like" onclick="Like('post-1-comment-1-2-like')">
+                Like
+              </p>
+              <p (click)="displayCommentInput(comment.id)" class="comment-recomment">
+                {{comment.childComments?.length >= 1?"Comment("+comment.childComments.length+")" : "Comment"}}
+              </p>
+            </div>
+          </div>
+          <div class="dropend ">
+            <div class="rounded-circle comment-action-icon" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+              <mat-icon svgIcon="more"></mat-icon>
+          </div>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a (click)="deleteComment(comment.id)" class="dropdown-item">Delete</a>
+            <a  class="dropdown-item" (click)="triggerEditComment(comment)">Edit</a>
+          </div>
+          </div>
+        </div>
+
+
+        <div *ngIf="replyComment == comment.id" class="comment-post-create comment-lv2 mt-3"
+          id="post-comment-lv1-comment-1">
+          <div class="d-flex">
+            <div class="comment-avatar">
+              <div class="user-avatar"></div>
+            </div>
+            <div class="comment-post-body w-100 ms-3">
+              <textarea name="" class="comment-input" placeholder="Comment as Nguyen Hai Ha"
+                [style.height]="textareaHeight + 'px'" [(ngModel)]="commentContent"></textarea>
+              <div class="comment-post-button d-flex justify-content-end px-4 py-2">
+                <button class="send-comment" (click)="sendCommentLV2(comment.postId, comment.id)"
+                  [class]="commentContent?'send-comment':'send-comment-disable'">
+                  <p>Send</p>
+                  <div *ngIf="isSendingComment" class="spinner-border spinner-border-sm" role="status">
+                  </div>
+                  <mat-icon *ngIf="!isSendingComment" svgIcon="send"></mat-icon>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <div *ngFor="let commentLV2 of comment.childComments" class="post-comment comment-lv1 d-flex">
+            <div class="comment-avatar">
+              <div class="user-avatar"></div>
+            </div>
+            <div class="comment-body">
+              <div class="comment-content">
+                <p class="username-comment">{{commentLV2.fullname}}</p>
+                <div *ngIf="!(commentLV2.id == editCommentId); else editTemplate">
+                  <p class="content-comment">{{commentLV2.content}}</p>
+                </div>
+                <div *ngIf="(commentLV2.id == editCommentId)">
+                  <ng-container *ngTemplateOutlet="editTemplate"></ng-container>
+                </div>
+              </div>
+              <div class="comment-button d-flex">
+                <p class="comment-date">Now</p>
+                <p class="comment-like" id="post-1-comment-1-2-like" onclick="Like('post-1-comment-1-2-like')">
+                  Like
+                </p>
+                <p (click)="displayCommentInput(comment.id)" class="comment-recomment">
+                  Comment
+                </p>
+              </div>
+            </div>
+            <div>
+              <div class="rounded-circle comment-action-icon" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <mat-icon svgIcon="more"></mat-icon>
+            </div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a (click)="deleteCommentLeve2(commentLV2.id, commentLV2.parentCommentId)" class="dropdown-item">Delete</a>
+              <a  class="dropdown-item" (click)="triggerEditComment(commentLV2)">Edit</a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="show-more">
+        <button *ngIf="!isLoadingComment" (click)="loadMoreComment(currentPostId)" class="show-more-btn">Show more</button>
+        <div *ngIf="isLoadingComment" class="loading-comment">
+
+          <div class="spinner-grow spinner-grow-sm loading-item" role="status">
+          </div>
+          <div class="spinner-grow spinner-grow-sm loading-item" role="status">
+          </div>
+          <div class="spinner-grow spinner-grow-sm loading-item" role="status">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

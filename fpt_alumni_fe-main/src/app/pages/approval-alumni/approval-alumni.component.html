@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container-xl">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="col-sm-5">
+                        <h2>Unauthentication <b>Alumni List</b></h2>
+                    </div>
+
+                </div>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th>FullName</th>
+                            <th>Date Of Birth</th>
+                            <th>Gender</th>
+                            <th>Student Code</th>
+                            <th>Phone Number</th>
+                            <th>Major</th>
+                            <th>Class</th>
+                            <th>Graduated</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let alumni of listUnauthorizeAlumni; index as i">
+                            <td>{{i + 1}}</td>
+                            <td><a href="#"><img
+                                        src="https://scontent.fhan14-3.fna.fbcdn.net/v/t39.30808-6/447684936_122152047410203760_2228067919665735033_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGfJE68doimaibB5N-3vO6DZou0hPt7pF9mi7SE-3ukX4gLfRlEBAAuegoO8bDSuTNrnKglprbSJGYXvCixyHbZ&_nc_ohc=Mle2pqYHDscQ7kNvgGnojTc&_nc_ht=scontent.fhan14-3.fna&oh=00_AYA_4nHsvdDaScTWZA7Ycz4RVz3S2omw83lYaOqRifOMMw&oe=6663A2AA"
+                                        class="avatar" alt="Avatar"></a></td>
+                            <td>{{alumni.fullName}}</td>
+                            <td>{{convertToNormalDateFormat(alumni.dateOfBirth)}}</td>
+                            <td><i class="fa-solid fa-mars text-primary me-1"></i>{{alumni.gender ==0 ? "FEMALE": alumni.gender ==1? "Male": "Other"}}</td>
+                            <td>{{alumni.studentCode}}</td>
+                            <td>{{alumni.phoneNumber}}</td>
+                            <td>{{alumni.major}}</td>
+                            <td>{{alumni.class}}</td>
+                            <td><span class="badge p-2" [ngClass]="{'graduation-status-no':!alumni.isGraduated, 'graduation-status-yes': alumni.isGraduated}">{{alumni.isGraduated? 'Graduated' :'Not Yet'}}</span></td>
+                            <td class="d-flex">
+                              <button class="btn btn-success" (click)="approveAlumni(alumni.userId)">Approve</button>
+                              <button class="btn btn-danger" (click)="rejectAlumni(alumni.userId)">Reject</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                    <button class="d-block mx-auto btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function Authen(id) {
+        const btn = document.querySelector('#btn-auth-' + id);
+        if (btn.textContent == "Unauthenticated") {
+            btn.classList.remove("btn-danger");
+            btn.classList.add("btn-success");
+            btn.textContent = "Authenticate";
+        } else {
+            btn.classList.add("btn-danger");
+            btn.classList.remove("btn-success");
+            btn.textContent = "Unauthenticated";
+        }
+
+    }
+</script>
+
+</html>

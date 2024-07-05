@@ -1,0 +1,8 @@
+<div [style.width]="imageWidth+'px'" class="avatar">
+  <div class="overlay" *ngIf="isSpinner">
+    <mat-spinner [diameter]="50"></mat-spinner>
+  </div>
+  <img [src]="avatar" alt="" [height]="imageHeight" [width] = "imageWidth" class="rounded-circle" >
+  <input type="file" name="" id="" #inputField hidden (change)="fileSelected($event)">
+  <button class="change-avatar-btn" (click)="inputField.click()"><mat-icon svgIcon="camera"></mat-icon>&nbsp;Change Photo</button>
+</div>

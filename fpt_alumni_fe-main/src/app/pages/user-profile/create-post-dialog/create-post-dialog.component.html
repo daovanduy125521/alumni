@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Create Post</h2>
+<mat-dialog-content class="mat-typography">
+  <div>
+    <label for="validationCustom03" class="form-label required-asterisk">Type of post</label>
+    <select class="form-select form-select-sm" aria-label="Small select example">
+      <option selected>Open this select menu</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+  </div>
+  <div>
+    <label for="validationCustom03" class="form-label required-asterisk">Full name</label>
+    <input type="text" class="form-control mb-3" id="validationCustom03" formControlName="fullName">
+    <!-- <div *ngIf="fullName!.invalid && fullName!.touched" class="invalid-feedback d-block">
+      <div *ngIf="fullName!.errors?.['required']">
+        Name is required.
+      </div>
+    </div> -->
+  </div>
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions>

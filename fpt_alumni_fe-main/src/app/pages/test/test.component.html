@@ -1,0 +1,12 @@
+<p>test works!</p>
+<!-- src/app/upload-download/upload-download.component.html -->
+<div>
+  <input type="file" (change)="upload($event)" />
+  <div *ngIf="uploadPercent !== undefined">
+    Upload Progress: {{ uploadPercent }}%
+  </div>
+  <div *ngIf="downloadURL">
+    <img [src]="downloadURL" alt="Uploaded Image" />
+  </div>
+  <button class="btn btn-warning" (click)="delete()">Delete</button>
+</div>

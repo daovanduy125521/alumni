@@ -1,0 +1,141 @@
+<div class="container-fluid w-75">
+    <div class="d-flex gap-4 justify-content-center mt-4">
+        <div class="mentor-avatar"></div>
+        <div class="mentor-info">
+            <h2 class="mentor-name">{{mentorDetail?.basicInformation?.fullName}}</h2>
+            <p>
+                <b>{{mentorDetail?.workAndEducation?.experiences[0]?.position}}</b> at <b>{{mentorDetail?.workAndEducation?.experiences[0]?.organisation}}</b>
+            <p>
+            <div class="card-text d-flex">
+                <div class="field-tag" *ngFor="let skill of mentorDetail.mentoringFields">{{ skill?.fieldName }}</div>
+            </div>
+        </div>
+        <div class="d-flex flex-column justify-content-end">
+            <button class="btn btn-danger w-50 ms-auto mb-3" data-toggle="modal"
+                data-target="#modalReport">Report</button>
+            <button class="alumni-btn mb-2">Choose this Mentor</button>
+            <button class="alumni-btn-outline">Back to Mentor List</button>
+        </div>
+    </div>
+
+    <div class="mentor-detail gap-4 row">
+        <div class="modal fade" id="modalReport" tabindex="-1" role="dialog" aria-labelledby="modalReportLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Report Mentor</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <img src="https://virtuzone.com/wp-content/uploads/2023/07/business-mentorship-6.jpg"
+                                class="mentor-avatar d-block mx-auto" alt="...">
+                            <h3 class="card-title">Nguyen Duc Minh</h3>
+                            <p class="card-text">Fullstack Developer at FPT Software</p>
+                        </div>
+                        <form class="mt-3">
+                            <div class="form-group mb-3">
+                                <label for="formFile" class="form-label">Evidence</label>
+                                <input class="form-control" type="file" id="formFile">
+                            </div>
+                            <div class="form-group">
+                                <label for="report-description" class="col-form-label">Description<span
+                                        class="text-danger">*</span></label>
+                                <textarea class="form-control" id="report-description" required></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger">Report</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-profile col">
+            <h2>Basic Information</h2>
+            <table class="tbl-info mt-2">
+                <tr>
+                    <td style="display: flex">
+                        <i class="fa-solid fa-venus-mars me-2"></i>Gender
+                    </td>
+                    <td>{{mentorDetail?.basicInformation?.gender}}</td>
+                </tr>
+                <tr>
+                    <td style="display: flex">
+                        <i class="fa-solid fa-address-card me-2"></i>Student Code
+                    </td>
+                    <td>{{mentorDetail?.basicInformation?.studentCode}}</td>
+                </tr>
+                <tr>
+                    <td style="display: flex">
+                        <i class="fa-solid fa-landmark me-2"></i>Phone Number
+                    </td>
+                    <td>{{mentorDetail?.basicInformation?.phone}}</td>
+                </tr>
+                <tr>
+                    <td style="display: flex">
+                        <i class="fa-regular fa-calendar me-2"></i>Email
+                    </td>
+                    <td>{{mentorDetail?.basicInformation?.email}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="content-contact col">
+            <h2>Demographic</h2>
+            <table class="tbl-info mt-2">
+                <tr>
+                    <td style="display: flex">
+                        <i class="fa-regular fa-envelope me-2"></i>Country
+                    </td>
+                    <td>{{mentorDetail?.currentCountry}}</td>
+                </tr>
+                <tr>
+                    <td style="display: flex">
+                        <i class="fa-solid fa-phone me-2"></i>Province
+                    </td>
+                    <td>{{mentorDetail?.currentCity}}</td>
+                </tr>
+                <tr>
+                    <td style="display: flex">
+                        <i class="fa-solid fa-location-dot me-2"></i>Language
+                    </td>
+                    <td>
+                        <div class="card-text d-flex">
+                            <div class="field-tag" *ngFor="let skill of mentorDetail.languageSkills">{{ skill?.name }}</div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="about">
+            <h2>About Mentor</h2>
+            <p>
+                Hey all!
+                Thanks for stopping by my profile! I've been in tech since the early 2000s and have a degree in
+                management from Purdue. Since 2019 I'm working for Canva.
+                I offer mentorship in a wide variety of topics. I am happy to help out if you are looking to run a
+                marketplace, if you want to learn more about running and scaling a startup, running your own
+                bootstrapped business, building side-projects, being a technical founder or leadership.
+                Can't wait to hear from you</p>
+        </div>
+        <div class="work-and-education">
+            <h2>Work And Education Experience</h2>
+            <div *ngFor="let experience of mentorDetail.workAndEducation.experiences" class="row g-0 mb-5 border-bottom d-flex">
+                <div class="col-lg-10 col-md-12 col-12 card card-hover border-0">
+                    <div class="card-body py-0">
+                        <p class="p-2 fs-6 mb-0 text-dark">
+                            <i class="fa-regular fa-calendar pe-2"></i>{{ experience.startDate }}
+                        </p>
+                        <h3>{{ experience.organisation }}</h3>
+                        <h5 class="mb-4">{{ experience.position }}</h5>
+                        <ul>
+                            <li *ngFor="let task of experience.positionSummary">{{ task }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

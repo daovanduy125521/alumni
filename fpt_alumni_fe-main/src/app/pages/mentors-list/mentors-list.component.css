@@ -1,0 +1,176 @@
+.mentor-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    border: 1px solid black;
+    margin: auto
+}
+
+.card:hover {
+    transition-duration: 0.5s;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+
+.field-tag {
+    border: 1px solid #f27125;
+    background-color: #ddd;
+    padding: 4px 8px;
+    border-radius: 16px;
+    font-weight: 400;
+    line-height: 48px;
+    cursor: pointer;
+}
+
+.mentor-card {
+    position: relative;
+}
+
+.mentor-report {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: #dedede;
+}
+
+.p-header {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 24px;
+  font-style: normal;
+  line-height: normal;
+}
+
+p{
+  margin: 0;
+}
+
+.alumni-input {
+  display: flex;
+  padding: 12px 12px;
+  align-items: center;
+  height: 50px;
+  border-radius: 8px;
+  border: 1px solid #D9D9D9;
+  width: 100%;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  outline: none;
+}
+
+.alumni-input:focus,
+.alumni-textarea:focus {
+  border: 1px solid #FFA47D;
+}
+
+.alumni-textarea {
+  display: flex;
+  padding: 12px 12px;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #D9D9D9;
+  width: 100%;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #dedede;
+  line-height: normal;
+  height: 120px;
+}
+
+.import-file {
+  display: flex;
+  width: 100%;
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.alumni-btn,
+.alumni-btn-outline {
+  display: flex;
+  padding: 9px 23px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  border: 1.5px solid #FFA47D;
+  background: #FFA47D;
+}
+
+.alumni-btn-outline {
+  background: #fff;
+}
+
+.alumni-label {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.text-description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f27125;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #f27125;
+}
+
+ h3 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+    margin: 0px;
+}
+
+.card-body {
+   width: -webkit-fill-available;
+}
+
+.card-text {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.field-tag {
+    line-height: 20px;
+    margin: 4px;
+}
+
+.card-button-alumni{
+    width: 60%;
+    padding: 4px 8px;
+}
+
+
+.modal-backdrop.show {
+  opacity: 0;
+}

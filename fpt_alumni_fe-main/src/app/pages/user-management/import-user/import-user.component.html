@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+  <div>
+    <div aria-label="breadcrumb" class="d-flex justify-content-between">
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="admin-home.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">User Management</li>
+          <li class="breadcrumb-item active" aria-current="page">Import User</li>
+      </ol>
+  </div>
+  <div class="row import-panel">
+        <div class="col-md-7">
+      <div
+      id="dropZone"
+      (drop)="onDrop($event)"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      [class.hovered]="isHovered"
+    >
+    <button (click)="openFileInput()">Click here to choose file</button>
+      <p>Drag and drop files here</p>
+    </div>
+    <input type="file" (change)="onFileSelected($event)" style="display: none;" id="fileInput">
+
+    </div>
+    <div class="col-md-5 import-control shadow p-3 mb-5 bg-body rounded">
+      <div class="row import-status">
+        <p>File name: <strong>{{selectedFile ? selectedFile.name :"Unknown"}}</strong></p>
+        <p>Import success: <span class="badge text-bg-success">{{importSuccessQuantity}}</span></p>
+        <p>Import failed: <span class="badge text-bg-danger">{{importFailedQuantity}}</span><button *ngIf="importFailedQuantity > 0" (click)="exportInvalidUser()" class="btn btn-link" type="button" [disabled]="false">
+          Download invalid alumni
+        </button> <span *ngIf="false" class="spinner-border text-primary spinner-border-sm" role="status">
+        </span></p>
+
+      </div>
+
+      <div class="btn-action">
+        <button (click)="importUser()" class="btn btn-import px-3">Import alumni</button>
+        <button class="btn btn-reset-import">Reset Import</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  </div>
+</body>
+</html>

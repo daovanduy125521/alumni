@@ -1,0 +1,102 @@
+::ng-deep  :root{
+  --icon-size: 32px;
+  --success: #28a745;
+  --info:#17a2b8;
+  --warning:#ffc107;
+  --error: #dc3545;
+}
+
+.toast-container {
+  position: fixed;
+  top: 60px;
+  right: 24px;
+  z-index: 1000;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: slideInLeft ease .3s, fadeOut linear 1s 5.2s forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(calc(100% + 32px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+.icon{
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+.icon--success{
+  fill:  var(--success) !important;
+}
+
+.icon--info{
+  fill: var(--info) !important;
+}
+
+.icon--warning{
+  fill: var(--warning) !important;
+}
+
+.icon--error{
+  fill: var(--error) !important;
+}
+
+.toast--success {
+  border-left: 8px solid var(--success);
+}
+
+.toast--info {
+  border-left: 8px solid var(--info);
+}
+
+.toast--warning {
+  border-left: 8px solid var(--warning);
+}
+
+.toast--error {
+  border-left: 8px solid var(--error);
+}
+
+.toast__icon {
+  margin-right: 12px;
+}
+
+.toast__body {
+  flex: 1;
+}
+
+.toast__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.toast__msg {
+  margin: 0;
+  font-size: 14px;
+}
+
+.toast__close {
+  cursor: pointer;
+}

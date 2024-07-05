@@ -1,0 +1,23 @@
+<div class="modal">
+  <div class="image-controls">
+    <button  (click)="zoomIn()"><mat-icon class="action-icon" svgIcon="zoom_in"></mat-icon></button>
+    <button  (click)="zoomOut()"><mat-icon class="action-icon" svgIcon="zoom_out"></mat-icon></button>
+    <button  (click)="close()"><mat-icon class="action-icon" svgIcon="close"></mat-icon></button>
+  </div>
+  <button class="prev" (click)="prevImage()">‹</button>
+  <div class="image-container">
+    <img [src]="data.images[currentIndex]" [alt]="data.images[currentIndex].alt"
+    (load)="onImageLoad()"
+    (error)="onImageError()"
+    [style.transform]="'scale(' + scale + ')'"
+    *ngIf="!imageLoadFailed"
+    >
+    <div *ngIf="imageLoadFailed && !isLoading" class="error-message">
+      <mat-icon class="image-off" svgIcon="image_off"></mat-icon>
+      Image failed to load.
+    </div>
+  </div>
+
+  <button class="next" (click)="nextImage()">›</button>
+  <div class="spinner" *ngIf="isLoading"><mat-spinner></mat-spinner></div>
+</div>

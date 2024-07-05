@@ -1,0 +1,47 @@
+<div  class="mat-elevation-z8 header" >
+  <div class="header-content">
+    <!-- <button  mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened" svgIcon="menu">
+
+      </mat-icon>
+      <mat-icon *ngIf="sidenav.opened" svgIcon="close">
+
+      </mat-icon>
+
+
+  </button> -->
+    <span class="app-logo"><img src="../../../../assets/images/mainLogo.svg" alt="SVG"></span>
+  <span class="fill-remaining-space"></span>
+
+
+
+<div class="dropdown">
+  <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+<ul class="side-menu" [ngClass]="{ 'show-menu': isMenuOpen }">
+  <li>Feed</li>
+  <li>Directory</li>
+  <li>Events</li>
+  <li>News</li>
+</ul>
+  <ul class="nav">
+    <li>Feed</li>
+    <li>Directory</li>
+    <li>Events</li>
+    <li>News</li>
+    <div class="rounded-circle user-avatar" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="../../../../assets/images/avatar-demo.png" alt="My Image" class="rounded-circle" style="width: 48px;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="hello"><p>Xin chào,</p> <p>{{userName}}</p></div>
+      <mat-icon  svgIcon="down"></mat-icon>
+  </div>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="profile">My Profile</a>
+    <div class="dropdown-divider m-0"></div>
+  <a class="dropdown-item" (click)="logout()">Sign out</a>
+  </div>
+</ul>
+
+
+</div>
+  </div>
+
+  </div>

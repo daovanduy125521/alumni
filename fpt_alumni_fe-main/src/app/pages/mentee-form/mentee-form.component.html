@@ -1,0 +1,193 @@
+<div class="container-fluid">
+  <div class="content p-4 rounded border-1 mx-auto">
+    <form [formGroup]="menteeForm" (ngSubmit)="onSubmit()" class="row g-3 w-50 mx-auto mentee-form">
+      <h1 class="text-center">BECOME A MENTEE</h1>
+      <p class="p-header">BASIC INFORMATION</p>
+      <div class="col-lg-6 col-md-6" [ngClass]="{'has-error': f['menteeFullName'].invalid && (f['menteeFullName'].dirty || f['menteeFullName'].touched)}">
+        <label class="alumni-label" for="menteeFullName">Full Name</label>
+        <input class="alumni-input" type="text" id="menteeFullName" formControlName="menteeFullName" placeholder="Full name" required />
+        <div *ngIf="f['menteeFullName'].invalid && (f['menteeFullName'].dirty || f['menteeFullName'].touched)" class="text-danger">
+          <div *ngIf="f['menteeFullName'].errors && f['menteeFullName'].errors['required']">
+            Full Name is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6" [ngClass]="{'has-error': f['menteeEmail'].invalid && (f['menteeEmail'].dirty || f['menteeEmail'].touched)}">
+        <label class="alumni-label" for="menteeEmail">Email</label>
+        <input formControlName="menteeEmail" class="alumni-input" type="email" id="menteeEmail" placeholder="Email" required />
+        <div *ngIf="f['menteeEmail'].invalid && (f['menteeEmail'].dirty || f['menteeEmail'].touched)" class="text-danger">
+          <div *ngIf="f['menteeEmail'].errors && f['menteeEmail'].errors['required']">
+            Email is required.
+          </div>
+          <div *ngIf="f['menteeEmail'].errors && f['menteeEmail'].errors['email']">
+            Please enter a valid email address.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6" [ngClass]="{'has-error': f['menteePhone'].invalid && (f['menteePhone'].dirty || f['menteePhone'].touched)}">
+        <label class="alumni-label" for="menteePhone">Phone Number</label>
+        <input formControlName="menteePhone" class="alumni-input" type="tel" id="menteePhone" placeholder="Phone Number" pattern="[0]{1}[0-9]{9}" required />
+        <div *ngIf="f['menteePhone'].invalid && (f['menteePhone'].dirty || f['menteePhone'].touched)" class="text-danger">
+          <div *ngIf="f['menteePhone'].errors && f['menteePhone'].errors['required']">
+            Phone Number is required.
+          </div>
+          <div *ngIf="f['menteePhone'].errors && f['menteePhone'].errors['pattern']">
+            Please enter a valid phone number starting with 0 and followed by 9 digits.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6">
+        <label class="alumni-label" for="menteeGender">Gender</label>
+        <div class="d-flex gap-4 align-items-center" style="height: 50px;">
+          <div class="form-check">
+            <input formControlName="menteeGender" class="form-check-input" type="radio" id="menteeGenderMale" value="Male" required />
+            <label class="form-check-label" for="menteeGenderMale">Male</label>
+          </div>
+          <div class="form-check">
+            <input formControlName="menteeGender" class="form-check-input" type="radio" id="menteeGenderFemale" value="Female" />
+            <label class="form-check-label" for="menteeGenderFemale">Female</label>
+          </div>
+          <div class="form-check">
+            <input formControlName="menteeGender" class="form-check-input" type="radio" id="menteeGenderOther" value="Other" />
+            <label class="form-check-label" for="menteeGenderOther">Other</label>
+          </div>
+        </div>
+        <div *ngIf="f['menteeGender'].invalid && (f['menteeGender'].dirty || f['menteeGender'].touched)" class="text-danger">
+          <div *ngIf="f['menteeGender'].errors && f['menteeGender'].errors['required']">
+            Gender is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6">
+        <label class="alumni-label" for="menteeStudentCode">Student Code</label>
+        <input formControlName="menteeStudentCode" class="alumni-input" type="text" id="menteeStudentCode" placeholder="Student Code" />
+      </div>
+
+      <p class="p-header">DEMOGRAPHIC</p>
+
+      <div class="col-lg-6 col-md-6" [ngClass]="{'has-error': f['menteeCurrentCountry'].invalid && (f['menteeCurrentCountry'].dirty || f['menteeCurrentCountry'].touched)}">
+        <label class="alumni-label" for="menteeCurrentCountry">Current Country</label>
+        <input formControlName="menteeCurrentCountry" class="alumni-input" type="text" id="menteeCurrentCountry" placeholder="Current Country" required />
+        <div *ngIf="f['menteeCurrentCountry'].invalid && (f['menteeCurrentCountry'].dirty || f['menteeCurrentCountry'].touched)" class="text-danger">
+          <div *ngIf="f['menteeCurrentCountry'].errors && f['menteeCurrentCountry'].errors['required']">
+            Current Country is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6" [ngClass]="{'has-error': f['menteeCurrentCity'].invalid && (f['menteeCurrentCity'].dirty || f['menteeCurrentCity'].touched)}">
+        <label class="alumni-label" for="menteeCurrentCity">Current City</label>
+        <input formControlName="menteeCurrentCity" class="alumni-input" type="text" id="menteeCurrentCity" placeholder="Current City" required />
+        <div *ngIf="f['menteeCurrentCity'].invalid && (f['menteeCurrentCity'].dirty || f['menteeCurrentCity'].touched)" class="text-danger">
+          <div *ngIf="f['menteeCurrentCity'].errors && f['menteeCurrentCity'].errors['required']">
+            Current City is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6">
+        <label class="alumni-label" for="menteeLanguage">Language(s)</label>
+        <select formControlName="menteeLanguage" id="menteeLanguage" class="alumni-input">
+          <option value="" disabled selected>Select your option</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+          <option value="4">Option 4</option>
+        </select>
+      </div>
+
+      <p class="p-header">WORK AND EDUCATION</p>
+      <div class="col-lg-6 col-md-6" [ngClass]="{'has-error': f['menteeLinkedIn'].invalid && (f['menteeLinkedIn'].dirty || f['menteeLinkedIn'].touched)}">
+        <label class="alumni-label" for="menteeLinkedIn">LinkedIn URL</label>
+        <input formControlName="menteeLinkedIn" class="alumni-input" type="url" id="menteeLinkedIn" placeholder="Link LinkedIn" required />
+        <div *ngIf="f['menteeLinkedIn'].invalid && (f['menteeLinkedIn'].dirty || f['menteeLinkedIn'].touched)" class="text-danger">
+          <div *ngIf="f['menteeLinkedIn'].errors && f['menteeLinkedIn'].errors['required']">
+            LinkedIn URL is required.
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12">
+        <label class="alumni-label">CV</label>
+        <br>
+        <label for="menteeCV" class="w-100">
+          <div class="bg-secondary import-file rounded" 
+            (drop)="onDrop($event)"
+            (dragover)="onDragOver($event)"
+            (dragleave)="onDragLeave($event)">
+            <p>Import CV Here</p>
+          </div>
+        </label>
+        <input formControlName="menteeCV" (change)="onFileSelected($event)" class="alumni-input" type="file" id="menteeCV" hidden />
+        <div *ngIf="selectedFiles.length > 0" class="mt-2">
+          <h5>Uploaded Files:</h5>
+          <ul>
+            <li *ngFor="let file of selectedFiles; let i = index" class="mb-2">
+              {{ file.name }}
+              <button type="button" (click)="removeFile(i)" class="btn btn-sm btn-danger ml-2">Delete</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      
+      <div class="row">
+        <!-- left column -->
+        <div class="text-right mt-3">
+          <button class="btn alumni-btn" type="button" (click)="addWorkExperience()">Add New Work Experience</button>
+        </div>
+        <div formArrayName="workExperiences">
+          <div *ngFor="let workExperience of workExperiences.controls; let i = index" [formGroupName]="i" class="collapse show mt-3 p-3">
+            <label for="inputCompanyName" class="alumni-label">Company Name</label>
+            <p>{{workExperience}}</p>
+            <input formControlName="companyName" type="text" class="alumni-input mb-2" placeholder="" required />
+            
+            <label for="inputWorkPosition" class="alumni-label">Work Position</label>
+            <input formControlName="workPosition" type="text" class="alumni-input mb-2" placeholder="" required />
+            
+            <div class="col-lg-6 col-md-6">
+              <label for="inputStart" class="alumni-label">Start</label>
+              <input formControlName="startMonth" type="month" class="form-control w-50" />
+            </div>
+            
+            <div class="col-lg-6 col-md-6">
+              <label for="inputEnd" class="alumni-label">End</label>
+              <div class="d-flex">
+                <input formControlName="endMonth" type="month" class="form-control w-50" />
+                <div style="line-height: 40px; display: flex">
+                  <input formControlName="stillWorking" type="checkbox" class="form-check-input my-auto mx-2" (change)="toggleEndMonth(i)" />
+                  <label class="form-check-label" for="checkboxEndWork">Still Working</label>
+                </div>
+              </div>
+            </div>
+            
+            <label for="inputJobDescription" class="alumni-label">Job Description</label>
+            <textarea formControlName="jobDescription" class="alumni-textarea mb-2" rows="3"></textarea>
+            
+            <div class="btn-save text-right mt-3 d-flex">
+              <button type="button" class="btn alumni-btn" (click)="removeWorkExperience(i)">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <p class="p-header mb-3">ADDITIONAL INFORMATION</p>
+        <div>
+          <label class="alumni-label" for="menteeReason">Mentee Preferences</label>
+          <textarea formControlName="menteeReason" class="alumni-textarea" id="menteeReason" placeholder="Preferences"></textarea>
+        </div>
+      </div>
+      <div class="d-flex gap-2 w-100 justify-content-end">
+        <button type="submit" class="btn alumni-btn">Submit</button>&nbsp;
+        <button type="button" class="btn alumni-btn-outline">Cancel</button>&nbsp;
+      </div>
+    </form>
+  </div>
+</div>
+
+
+

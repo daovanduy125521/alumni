@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
+  <div class="color"></div>
+  <div class="form-wrapper p-5">
+    <h1 class="m-4 ">Create Staff</h1>
+
+
+          <form [formGroup]="staffForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+            <div>
+              <label for="inputWorkPosition" class="form-label">Email</label>
+              <input type="text" class="form-control mb-2" id="inputWorkPosition" placeholder=""
+                formControlName="mainEmail" />
+                <!-- <div *ngIf="workPosition!.invalid && workPosition!.touched" class="invalid-feedback d-block">
+                  <div *ngIf="workPosition!.errors?.['required']">
+                    Name is required.
+                  </div>
+                </div> -->
+            </div>
+
+            <div>
+              <label for="inputWorkPosition" class="form-label">FullName</label>
+              <input type="text" class="form-control mb-2" id="inputWorkPosition" placeholder=""
+                formControlName="fullName" />
+                <!-- <div *ngIf="workPosition!.invalid && workPosition!.touched" class="invalid-feedback d-block">
+                  <div *ngIf="workPosition!.errors?.['required']">
+                    Name is required.
+                  </div>
+                </div> -->
+            </div>
+
+            <div>
+              <label for="inputWorkPosition" class="form-label">Password</label>
+              <input type="text" class="form-control mb-2" id="inputWorkPosition" placeholder=""
+                formControlName="password" />
+                <!-- <div *ngIf="workPosition!.invalid && workPosition!.touched" class="invalid-feedback d-block">
+                  <div *ngIf="workPosition!.errors?.['required']">
+                    Name is required.
+                  </div>
+                </div> -->
+            </div>
+
+            <div>
+              <label for="inputWorkPosition" class="form-label">Campus</label>
+              <select class="form-select" aria-label="Default select example" formControlName="campus">
+                <option *ngFor="let place of campus" [value]="place.id">{{place.title}}</option>
+              </select>
+            </div>
+
+                    <button type="submit" class="btn btn-success">Create</button>
+
+          </form>
+
+
+    <div class="d-flex m-4">
+        <p class="mx-1"><a href="admin-user-management.html">Back to List</a></p>
+    </div>
+</div>
+</body>
+</html>

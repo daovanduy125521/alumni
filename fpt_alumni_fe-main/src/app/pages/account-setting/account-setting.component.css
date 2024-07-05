@@ -1,0 +1,134 @@
+.container{
+  background-color: #cae7df;
+  padding: 12px 24px;
+}
+.avatar{
+  width: fit-content;
+  overflow: hidden;
+}
+
+.imag-upload{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-field{
+  width: 100%;
+}
+
+.required-asterisk:after {
+  content: " *";
+  color: red;
+  font-weight: bold;
+font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+.container {
+  background-color: white;
+  padding: 12px 24px;
+}
+.nav {
+  background-color: white;
+}
+
+.nav button {
+  text-align: left;
+}
+
+button {
+  color: black !important;
+  font-size: 16px;
+  font-weight: 500;
+}
+button.active {
+  background: #fdece5 !important;
+}
+.btn-alumni {
+  background-color: #ffa47d;
+  font-weight: 500;
+}
+
+form {
+  border-radius: 16px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+}
+
+a {
+  color: #ffa47d;
+}
+
+a:hover {
+  color: #ff5b15;
+}
+.avatar-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background-color: #ccc;
+}
+.label-button-avatar {
+  display: flex;
+  padding: 9px 23px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  border: 1.5px solid #ffa47d;
+  background: #fff;
+  width: 25%;
+  margin: auto;
+  margin-top: 16px;
+}
+.label-button-avatar:hover{
+  cursor: pointer;
+  background-color: #ffa47d;
+}
+.btn-save{
+  width: 100%;
+  text-align: right;
+}
+
+.personal-info{
+
+}
+
+.setting-title{
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.btn-save-info{
+    background-color: #ffa47d;
+    font-weight: 500;
+}
+
+.delete-icon{
+  color: #d11a2a;
+  width: 28px;
+  height: 28px;
+}
+
+.delete-icon:hover{
+cursor: pointer;
+color: rgba(209, 26, 42, 0.5);
+}
+
+
+
+.break-title{
+  margin-top: 32px;
+  font-size: 12px;
+  color: #bfbfbf;
+}
+
+@media screen and (min-width: 992px){
+  .col-lg-12 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+}

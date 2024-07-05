@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card card0 border-0">
+            <div>
+                <div class="card1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/FPT_Education_logo.svg/2560px-FPT_Education_logo.svg.png"
+                        class="logo">
+                </div>
+                <div class="card2 card border-0 px-4 py-5">
+                    <div class="row mb-4 px-3">
+                        <h2 class="mb-0 mr-4 mt-2">Register to Alumni</h2>
+                    </div>
+                    <form class=" row register-form" [formGroup]="userForm" (ngSubmit)="submitUserForm()">
+
+                      <div class="col-md-6">
+                        <label for="email-input"  class="form-label required-asterisk">Email</label>
+                        <div class="input-group mb-3">
+                          <input type="text" [readonly]="isSSORegister" class="form-control" id="email-input" formControlName="emailLogged" [class.is-invalid]="emailLogged!.invalid && (emailLogged!.dirty || emailLogged!.touched)">
+                          <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">@provider.com</span>
+                          </div>
+                          <div *ngIf="emailLogged!.invalid && (emailLogged!.dirty || emailLogged!.touched)" class="invalid-feedback">
+                            <div *ngIf="emailLogged?.errors?.['required']">Email is required</div>
+                            <div *ngIf="emailLogged!.errors?.['email']">Invalid email format</div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <!-- <div class="col-md-4">
+                        <label class="form-label" for="role-select">Role</label>
+                        <select class="form-control mb-3" id="role-select"  formControlName="roleId">
+                          <option *ngFor="let role of roles" [value]="role.value">{{ role.title }}</option>
+                        </select>
+                      </div> -->
+
+                      <div class="col-md-6">
+                        <label for="validationCustom03" class="form-label requiredf-asterisk">Full name</label>
+                        <input type="text" class="form-control mb-3" id="validationCustom03" formControlName="fullName">
+                        <div *ngIf="fullName!.invalid && fullName!.touched" class="invalid-feedback d-block">
+                          <div *ngIf="fullName!.errors?.['required']">
+                            Name is required.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="validationCustom03" class="form-label required-asterisk" >Your birthday</label>
+                        <input type="date" class="form-control mb-3" id="validationCustom03" formControlName="dateOfBirth">
+                        <div *ngIf="dateOfBirth!.invalid && dateOfBirth!.touched" class="invalid-feedback d-block">
+                          <div *ngIf="dateOfBirth!.errors?.['required']">
+                            Date is required.
+                          </div>
+                          <div *ngIf="dateOfBirth!.errors?.['dateLessThanToday']">
+                            Invalid date
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="validationCustom03" class="form-label">Student code</label>
+                        <input type="text" class="form-control" id="validationCustom03" formControlName="studentCode">
+                        <div class="invalid-feedback">
+                          Please provide a valid city.
+                        </div>
+                      </div>
+
+
+
+                      <!-- <div class="col-md-6">
+                        <label class="form-label" for="major-select">Major</label>
+                        <select class="form-control" id="major-select" formControlName="major" >
+                          <option *ngFor="let major of majors" [value]="major.id">{{ major.title }}</option>
+                        </select>
+                      </div> -->
+<!--
+                      <div class="col-md-6">
+                        <label for="class-input required-asterisk" class="form-label" >Class</label>
+                        <input type="text" class="form-control" id="class-input" formControlName="class">
+                        <div class="invalid-feedback">
+                          Please provide a valid city.
+                        </div>
+                      </div> -->
+
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold required-asterisk" >Are you graduated?</label>
+                        <div >
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="isGraduated" id="inlineRadio1"  [value]="true" formControlName="isGraduated">
+                            <label class="form-check-label" for="inlineRadio1">Yes</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="isGraduated" id="inlineRadio2" [value]="false" formControlName="isGraduated">
+                            <label class="form-check-label" for="inlineRadio2">No</label>
+                          </div>
+                          <div *ngIf="isGraduated!.invalid && isGraduated!.touched" class="invalid-feedback d-block">
+                            Please select graduation status
+                          </div>
+                        </div>
+                      </div>
+<!--
+                      <div class="col-md-3">
+                        <label for="phone-number-input" class="form-label">Graduation year</label>
+                        <input type="number" class="form-control" id="phone-number-input" formControlName="graduationYear" [class.is-invalid]="graduationYear!.invalid && (graduationYear!.dirty || graduationYear!.touched)">
+                        <div *ngIf="graduationYear!.invalid && (graduationYear!.dirty || graduationYear!.touched)" class="invalid-feedback">
+                          <div *ngIf="graduationYear?.errors?.['max']"> Plead enter graduation year smaller than {{currentYear}}</div>
+                        </div>
+                      </div> -->
+
+                      <div class="col-md-6">
+                        <label class="form-label fw-bold required-asterisk" >Gender</label>
+                        <div >
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="gender1"  [value]="1" formControlName="gender">
+                            <label class="form-check-label" for="gender1">Male</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="gender2" [value]="0" formControlName="gender">
+                            <label class="form-check-label" for="gender2">Female</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="gender3" [value]="2" formControlName="gender">
+                            <label class="form-check-label" for="gender3">Other</label>
+                          </div>
+                          <div *ngIf="gender!.invalid && gender!.touched" class="invalid-feedback d-block">
+                            Please choose your gender
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label class="form-label required-asterisk" >Select country</label>
+                        <ng-select
+                          formControlName = "country"
+                          [items]="listCountry"
+                          bindLabel="native"
+                          bindValue="name"
+                          (change)="findAllStateByCountry($event)"
+                          placeholder="Select an option"
+                          [searchable]="true">
+                        </ng-select>
+                        <div *ngIf="country!.invalid && country!.touched" class="invalid-feedback d-block">
+                          <div *ngIf="country!.errors?.['required']">
+                            Country is required.
+                          </div>
+                        </div>
+                        </div>
+
+                        <div class="col-md-6">
+                        <label class="form-label required-asterisk" >Select state</label>
+                        <ng-select
+                        formControlName = "city"
+                          [items]="listState"
+                          bindLabel="name"
+                          bindValue="name"
+                          placeholder="Select an option"
+                          [searchable]="true">
+                        </ng-select>
+                        <div *ngIf="city!.invalid && city!.touched" class="invalid-feedback d-block">
+                          <div *ngIf="city!.errors?.['required']">
+                            City is required.
+                          </div>
+                        </div>
+                      </div>
+
+<!--
+                        <div class="col-md-6">
+                          <label for="phone-number-input" class="form-label">Phone number</label>
+                          <input type="text" class="form-control" id="phone-number-input" formControlName="phoneNumber">
+                          <div class="invalid-feedback">
+                            Please provide a valid city.
+                          </div>
+                          <div class = "user-fild-container">
+                            <mat-form-field class="user-field" appearance="outline">
+                            <mat-label>Work field</mat-label>
+                            <mat-chip-grid #chipGrid aria-label="Fruit selection">
+                              <mat-chip-row *ngFor="let field of fields" (removed)="remove(field.id)">
+                                {{field.title}}
+                                <button matChipRemove [attr.aria-label]="'remove ' + field">
+                                  <mat-icon>cancel</mat-icon>
+                                </button>
+                              </mat-chip-row>
+                            </mat-chip-grid>
+                            <input placeholder="Choose filed" #fieldInput [formControl]="fieldCtrl"
+                              [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+                              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                              (matChipInputTokenEnd)="add($event)"/>
+                            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                              <mat-option *ngFor="let fieldTitle of filteredField | async" [value]="fieldTitle">
+                                {{fieldTitle}}
+                              </mat-option>
+                            </mat-autocomplete>
+                          </mat-form-field>
+                          </div>
+
+                        </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      <div class="mt-3">
+
+                        <button type="submit" mat-flat-button color="primary">Register</button>
+                        <a style="margin-left: 20px;" href="/login">Back to login</a>
+                      </div>
+
+                    </form>
+
+
+                </div>
+            </div>
+            <div class="bg-blue py-4">
+                <div style="height: 40px;">
+                    <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2024. All rights reserved.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

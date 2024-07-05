@@ -1,0 +1,320 @@
+.container {
+  font-size: 20px;
+}
+
+.user-profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.user-profile-info>* {
+  display: flex;
+  padding: 28px 35px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 32px;
+  border: 1px solid #d9d9d9;
+}
+
+.p-32 {
+  color: #1e1e1e;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+table td {
+  padding: 8px;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  gap: 24px;
+  flex-direction: column;
+  display: flex;
+}
+
+.new-mentorship,
+.new-job,
+.new-coupon {
+  width: 33%;
+  border-radius: 16px;
+  border: 1px solid #f27125;
+  padding: 0 0 4px 0;
+}
+
+.new-mentorship:hover,
+.new-job:hover,
+.new-coupon:hover {
+  background-color: #f27125;
+  color: white;
+  cursor: pointer;
+}
+
+.new-post img {
+  width: 100%;
+  height: 160px;
+  border-radius: 16px;
+}
+
+.user-profile-post{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 32px;
+}
+
+.create-user-post{
+  border: 1px solid #D9D9D9;
+  height: 70px;
+  border-radius: 28px;
+  margin: 0 32px 32px;
+  padding: 0 32px;
+  cursor: pointer;
+}
+
+.user-create-post{
+  flex: 1;
+  position: relative;
+  padding: 32px;
+  border-radius: 32px;
+  border: 1px solid #D9D9D9;
+}
+
+.header-create{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.select-privacy{
+    display: flex;
+    height: 27px;
+    padding: 1px 13px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 4px;
+    border: 1px solid #ffa47d;
+    background-color: #fff;
+    margin-top: 2px;
+}
+
+.post-privacy{
+  width: 128px;
+  height: 28px;
+
+}
+
+.image-preview-container {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  display: flw;
+}
+
+.image-preview {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.image-preview-container mat-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#suggest-list{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.suggest-item{
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.suggest-item:hover{
+  background-color: #f0f0f0;
+}
+
+.ckeditor-container {
+  position: relative;
+  width: 100%;
+}
+
+.ck-editor__editable {
+  min-height: 200px; /* Minimum height */
+  border: 1px solid #ccc;
+}
+
+.image-post{
+  height: 400px;
+  width: auto;
+}
+
+.image-post img {
+  height: 100%;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.close-create-post{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-upload{
+  border: none;
+  padding: 4px 8px;
+}
+
+.icon-image{
+  width: 36px;
+  height: 36px;
+
+}
+
+
+.post-btn-title{
+  padding-left: 8px;
+}
+
+.type-post{
+  width: 50%;
+}
+
+.create-post-container label{
+  font-weight: bold;
+  margin-top: 16px;
+}
+
+.required-asterisk:after {
+  content: " *";
+  color: red;
+  font-weight: bold;
+font-size: 16px;
+}
+
+.user-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 56px;
+  margin-right: 8px;
+}
+
+.user-avatar img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-create{
+  display: flex;
+  width: 90%;
+  height: 44px;
+  padding: 9px 29px 10px 27px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #ffa47d;
+  border: none;
+  margin-top: 16px;
+}
+
+.btn-create-loading{
+  display: flex;
+  width: 90%;
+  height: 44px;
+  padding: 9px 29px 10px 27px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #ffa47d80;
+  border: none;
+  margin-top: 16px;
+}
+
+.work-item{
+  border-bottom: 1px solid #D9D9D9;
+}
+
+.avatar-section{
+  display: inline-block; /* Ensures the div wraps tightly around the image */
+  position: relative;
+  height: 240px;
+  padding: 0 10%;
+}
+
+.avatar-section img{
+  display: inline-block; /* Removes the gap under the image */
+  width: 200px; /* Ensures the image takes the full width of the container */
+  height: auto;
+
+}
+
+.featured-information{
+  display: flex;
+  align-items: center;
+
+}
+
+.name-job{
+  margin-left: 34px;
+}
+
+.fullname{
+  font-weight: bold;
+  margin: 0;
+}
+
+.job{
+  color:#444444;
+}
+
+.profile-option{
+  padding: 24px 0;
+  text-align: end;
+  display: flex;
+  align-items: flex-end;
+}
+
+.edit-profile{
+  width: 148px;
+  height: 46px;
+  background-color: white;
+  border: 1px solid #FFA47D;
+  border-radius: 8px;
+
+}
+
+
+
+
+

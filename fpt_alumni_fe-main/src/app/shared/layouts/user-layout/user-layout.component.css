@@ -1,0 +1,171 @@
+
+body{
+  background-color: #f5f5f5 !important;
+}
+
+
+
+.container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+
+}
+
+.side-bar{
+  width: 16%;
+  background-color: white;
+  border-radius: 24px;
+  padding: 8px;
+}
+
+.content-container{
+  padding-top: 0;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+mat-sidenav-container, mat-sidenav-content, mat-sidenav{
+  height: 100%;
+}
+
+main{
+  padding: 10px;
+}
+
+.app-title{
+  height: 100%;
+  margin-left: 88px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+
+
+
+.user-header {
+  background: #F3F4F6;
+  color: #000000;
+  display: flex;
+  height: 64px;
+  z-index: 2;
+  position: relative;
+}
+
+
+
+.content {
+  min-height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+  padding: 16px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  height: 100%;
+  font-size: 2rem;
+  background-color: white;
+  position: relative;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 18px;
+  color: #5C5E64 !important;
+  height: 40px;
+
+  /* mat-icon {
+      margin-right: 8px;
+  } */
+}
+
+.menu-button mat-icon{
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.avatar {
+  margin-top: 16px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.name {
+  margin-top: 8px;
+  font-weight: normal;
+}
+
+.designation {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  color: #EDEDEE;
+}
+
+mat-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.button-selected{
+  background-color: #eeedff;
+  color: #050096!important;
+}
+
+.sidenav-container{
+  background-color: #EDEDEE;
+  height: fit-content;
+}
+
+.spinner-overlay {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(237, 237, 237, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-avatar{
+  margin-right: 44px;
+}
+/* .icon-size {
+  font-size: 100px !important;
+  height: 100px !important;
+  width: 100px !important;
+} */
+
+.user-layout-container{
+  background-color: white;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 600px) {
+  .app-title{
+    display: none;
+  }
+}
+

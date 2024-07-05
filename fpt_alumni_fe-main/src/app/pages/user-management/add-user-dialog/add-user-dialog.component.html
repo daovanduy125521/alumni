@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
+  <div class="color"></div>
+  <div class="form-wrapper p-5">
+    <h1 class="m-4 ">Create User</h1>
+
+
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+
+            <div class="mb-3">
+              <label for="name" class="form-label">Email</label>
+              <input type="text" formControlName="email" class="form-control" required>
+              <div class="invalid-feedback">
+                Name is required.
+              </div>
+            </div>
+<!--
+            <div class="mb-3">
+              <label for="email" class="form-label">Role</label>
+              <select  class="form-control" style="width: 300px;" formControlName = "roleId" required="">
+                <option *ngFor="let role of roles" [value]="role.id">{{role.title}}</option>
+            </select>
+              <div class="invalid-feedback">
+                Enter a valid email.
+              </div>
+            </div> -->
+
+
+
+            <!-- <tr style="height: 40px;">
+                <td class="text-right px-4"><b>Is Active</b></td>
+                <td><input type="checkbox" [(ngModel)]="data.isActive"></td>
+            </tr>
+            <tr>
+                <td class="text-right px-4"><b>Campus</b></td>
+                <td>
+                    <select class="form-control" [(ngModel)]="data.campus">
+                        <option value="HN">HN</option>
+                        <option value="HCM">HCM</option>
+                        <option value="CT">CT</option>
+                    </select>
+                </td>
+            </tr> -->
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit" class="btn btn-success">Create</button>
+                </td>
+            </tr>
+          </form>
+
+
+    <div class="d-flex m-4">
+        <p class="mx-1"><a href="admin-user-management.html">Back to List</a></p>
+    </div>
+</div>
+</body>
+</html>

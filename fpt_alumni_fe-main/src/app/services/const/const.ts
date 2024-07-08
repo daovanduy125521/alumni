@@ -36,6 +36,7 @@
  const API_CREATEMENTEE = API_URL + '/Mentoring/BecomeAMentee';
  const API_FILTERMENTORS = API_URL + '/Mentoring/FilterMentors';
  const API_MENTOR_DETAIL = API_URL + '/Mentoring';
+ const API_MENTOR_REPORT = API_URL + '/Mentoring/Report';
  const ICONS = ['success_circle', 'error_circle', 'info_circle', 'warning_circle', 'excel', 'download', 'employee', 'dashboard', 'alumni', 'add', 'check_list', 'warning', 'menu', 'close',
   'down', 'mail', 'phone', 'facebook', 'more', 'search', 'edit', 'linkedin', 'public', 'lock', 'image', 'zoom_in', 'zoom_out', 'image_off', 'camera', 'delete', 'a_symbol', 'like', 'chat',
   'eye', 'eye_off', 'send'
@@ -58,7 +59,7 @@ export {API_URL, API_LOGIN, API_ROLES, API_USERS, API_REGISTER, API_REFRESH_TOKE
   API_IMPORT_USER, API_USER_SETTING, API_FORGOT_REQUEST, API_CHECK_FORGOT, API_CHANGE_PASSWORD_FORGOT, API_GET_ALL_FIELDS, API_EXPORT_ERROR_USER, API_GET_ALUMNI_BY_STATUS
 , API_UPDATE_USER_STATUS, API_GETALL_ALUMNI, API_ADD_WORK_EXPRIENCE, API_ADD_EDUCATION_EXPRIENCE, API_CHANGE_PASSWORD, API_LOGOUT, API_GET_ALL_STAFF, API_FIND_ALUMNI_TAG,
 API_CREATE_POST, API_COMMENT, API_GET_PAGE_COMMENT, API_GET_ALL_POST_FIELD, API_GET_ALL_POST_MAJOR, API_GET_ALL_POST_CATEGORY, API_VIEW_POST_IN_GROUP, API_GET_COMMENT_BY_POSTID,
-COMMENT_PAGE_SIZE, API_VIEW_POST_IN_PROFILE, API_CREATEMENTEE, API_FILTERMENTORS, API_MENTOR_DETAIL}
+COMMENT_PAGE_SIZE, API_VIEW_POST_IN_PROFILE, API_CREATEMENTEE, API_FILTERMENTORS, API_MENTOR_DETAIL,   API_MENTOR_REPORT}
 
 
 

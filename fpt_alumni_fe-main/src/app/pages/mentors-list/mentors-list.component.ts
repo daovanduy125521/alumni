@@ -47,6 +47,7 @@ export class MentorsListComponent {
         console.log("duy",data)
         if(data.data){
             this.workingConnectionFilters = data.data.connectionAndWorkings.map((item: any) => ({ ...item, checked: false }));
+            console.log("duytesst",  this.workingConnectionFilters )
             this.languageFilters = data.data.languages.map((item: any) => ({ ...item, checked: false }));
     
           this.mentors = data.data.mentorings;
@@ -112,9 +113,27 @@ export class MentorsListComponent {
   onReport() {
     if (this.reportForm.valid) {
       // Logic xử lý khi form hợp lệ và nút "Report" được nhấn
-      console.log('Form Value:', this.reportForm.value);
-      const modalElement = this.elementRef.nativeElement.querySelector('#btn-close');
-      modalElement.click();
+      console.log('Form Value:', this.selectedMentor);
+      const body = {
+        ReporterId: "",
+        VictimId: this.selectedMentor.id,
+        Description: this.reportForm.value.description,
+        AdditionalInformation: this.reportForm.value.evidence
+      }
+      this.postService.createMentorReport(body).subscribe({
+        next: (data: any) => {
+          const modalElement = this.elementRef.nativeElement.querySelector('#btn-close');
+           modalElement.click();
+        },error: err=>{
+          console.log(err)
+          this.toastSerice.showToast({
+            title: 'Error',
+            message: err.error.userMsg,
+            type: 'error',
+            duration: 5000,
+          });
+        }
+      })
     } else {
       console.log('Form is invalid');
     }

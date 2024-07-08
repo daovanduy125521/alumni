@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API_COMMENT, API_CREATEMENTEE, API_CREATE_POST, API_FILTERMENTORS, API_FIND_ALUMNI_TAG, API_GET_ALL_POST_CATEGORY, API_GET_ALL_POST_FIELD, API_GET_ALL_POST_MAJOR, API_GET_COMMENT_BY_POSTID, API_GET_PAGE_COMMENT, API_MENTOR_DETAIL, API_MENTOR_REPORT, API_VIEW_POST_IN_GROUP, API_VIEW_POST_IN_PROFILE } from './const/const';
+import { API_COMMENT, API_CREATEMENTEE, API_CREATEMENTOR, API_CREATE_POST, API_FILTERMENTORS, API_FIND_ALUMNI_TAG, API_GET_ALL_POST_CATEGORY, API_GET_ALL_POST_FIELD, API_GET_ALL_POST_MAJOR, API_GET_COMMENT_BY_POSTID, API_GET_PAGE_COMMENT, API_MENTOR_DETAIL, API_MENTOR_REPORT, API_VIEW_POST_IN_GROUP, API_VIEW_POST_IN_PROFILE } from './const/const';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -108,6 +108,10 @@ export class PostService {
 
   createMentee(body: any) {
     return this.http.post(API_CREATEMENTEE, body);
+  }
+
+  createMentor(body: any) {
+    return this.http.post(API_CREATEMENTOR, body);
   }
 
   filterMentors(body: any) {

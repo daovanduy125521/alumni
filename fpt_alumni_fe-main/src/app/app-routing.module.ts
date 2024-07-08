@@ -23,6 +23,7 @@ import { AlumniGroupComponent } from './pages/alumni/alumni-group/alumni-group.c
 import { MenteeFormComponent } from './pages/mentee-form/mentee-form.component';
 import { MentorsListComponent } from './pages/mentors-list/mentors-list.component';
 import { MentorProfileComponent } from './pages/mentor-profile/mentor-profile.component';
+import { MentorFormComponent } from './pages/mentor-form/mentor-form.component';
 
 const routes: Routes = [
 
@@ -62,6 +63,9 @@ const routes: Routes = [
   },
   {
     path: "mentee_form", component: MenteeFormComponent
+  },
+  {
+    path: "mentor_form", component: MentorFormComponent
   },
   {
     path: "mentors_list", component: MentorsListComponent

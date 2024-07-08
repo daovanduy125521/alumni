@@ -67,6 +67,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MenteeFormComponent } from './pages/mentee-form/mentee-form.component';
 import { MentorsListComponent } from './pages/mentors-list/mentors-list.component';
 import { MentorProfileComponent } from './pages/mentor-profile/mentor-profile.component';
+import { MentorFormComponent } from './pages/mentor-form/mentor-form.component';
 
 registerLocaleData(vi);
 
@@ -103,6 +104,7 @@ registerLocaleData(vi);
     MenteeFormComponent,
     MentorsListComponent,
     MentorProfileComponent,
+    MentorFormComponent,
   ],
   imports: [
     BrowserModule,
